@@ -90,6 +90,8 @@ h1 {
     font-weight: 800;
     color: var(--blue);
     gap: 0.5rem;
+    position: relative;
+    align-items: center;
 }
 
 /* ADD FLOATING SVG LOGO BEFORE THE H1 */
@@ -101,6 +103,11 @@ header h1::before {
     background: url('images/vanguard-logo.svg') no-repeat center/contain;
 }
 
+@keyframes floatLogo {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-6px); }
+}
+
 header h2 {
     visibility: hidden;
     height: 1px;
@@ -108,6 +115,9 @@ header h2 {
 
 #main-nav {
     display: none;
+    position: absolute;
+    opacity: 0;
+    pointer-events: none;
 }
 
 nav {
@@ -146,6 +156,7 @@ label[for="main-nav"] {
     cursor: pointer;
     display: block;
     width: 35px;
+    height: 24px;
     position: absolute;
     top: 2rem;
     right: 2rem;
@@ -172,12 +183,28 @@ label[for="main-nav"] span::after {
     top: 13px;
 }
 
+header nav {
+    display: block;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.35s ease;
+}
+
 input:checked ~ nav {
     display: block;
 }
 
 input:checked ~ ul {
     max-height: 500px;
+}
+
+#main-nav:checked ~ nav {
+    max-height: 400px;
+}
+
+nav ul {
+    display: flex;
+    flex-direction: column;
 }
 
 /* ADD A DIV WITH THE CLASS OF CONTAINER TO EVERY CONTENT CONTAINER THIS IS ALLOW THE BASE ELEMENTS TO BE 100% WIDTH, BUT CONSTRAIN THE ACTUAL CONTENT TO 90% */
@@ -373,6 +400,10 @@ form {
     font-size: 12pt;
 }
 
+input, select, textarea {
+    border: 0.2rem solid var(--blue);
+}
+
 input, select {
     padding: 20px;
     margin-bottom: 20px; 
@@ -387,7 +418,7 @@ textarea {
     background-color: var(--blue);
     color: var(--white);
     text-decoration: none;
-    border-radius: 1rem;
+    border-radius: 0.75rem;
     font-size: 15pt;
     font-weight: 800;
     border: none;
