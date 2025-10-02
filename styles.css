@@ -64,14 +64,13 @@ table {
 }
 
 /* GLOBAL STYLES (MOBILE FIRST (SMALL) */
+
 body {
     font-family: var(--font);
     font-size: 10pt;
     line-height: 1.5;
     font-weight: 500;
-    margin: 0;
-    box-sizing: border-box;
-    scroll-behavior: smooth;
+    margin: 0 auto;
     min-width: 400px;
 }
 
@@ -90,8 +89,6 @@ h1 {
     font-weight: 800;
     color: var(--blue);
     gap: 0.5rem;
-    position: relative;
-    align-items: center;
 }
 
 /* ADD FLOATING SVG LOGO BEFORE THE H1 */
@@ -103,11 +100,6 @@ header h1::before {
     background: url('images/vanguard-logo.svg') no-repeat center/contain;
 }
 
-@keyframes floatLogo {
-    0%, 100% { transform: translateY(0); }
-    50% { transform: translateY(-6px); }
-}
-
 header h2 {
     visibility: hidden;
     height: 1px;
@@ -115,9 +107,6 @@ header h2 {
 
 #main-nav {
     display: none;
-    position: absolute;
-    opacity: 0;
-    pointer-events: none;
 }
 
 nav {
@@ -156,7 +145,6 @@ label[for="main-nav"] {
     cursor: pointer;
     display: block;
     width: 35px;
-    height: 24px;
     position: absolute;
     top: 2rem;
     right: 2rem;
@@ -183,28 +171,12 @@ label[for="main-nav"] span::after {
     top: 13px;
 }
 
-header nav {
-    display: block;
-    max-height: 0;
-    overflow: hidden;
-    transition: max-height 0.35s ease;
-}
-
 input:checked ~ nav {
     display: block;
 }
 
 input:checked ~ ul {
     max-height: 500px;
-}
-
-#main-nav:checked ~ nav {
-    max-height: 400px;
-}
-
-nav ul {
-    display: flex;
-    flex-direction: column;
 }
 
 /* ADD A DIV WITH THE CLASS OF CONTAINER TO EVERY CONTENT CONTAINER THIS IS ALLOW THE BASE ELEMENTS TO BE 100% WIDTH, BUT CONSTRAIN THE ACTUAL CONTENT TO 90% */
@@ -446,21 +418,30 @@ footer {
     color: var(--white);
 }
 
-/* MEDIA QUERIES (MEDIUM) */ 
+/* MEDIA QUERIES (MEDIUM) */
+@media all and (min-width: 800px) {
 
     #results {
+        display: grid;
         grid-template-columns: 1fr 1fr;
+        grid-template-rows: 1fr 1fr;
+        gap: 1rem;
     }
+
     .results-container {
         flex-direction: row;
         justify-content: space-between;
     }
+
     .results-table {
         width: 50%;
-    }
-    .bar-chart {
-        width: 50%;
+        grid-column: 1/2;
     }
 
+    .bar-chart {
+        width: 50%;
+        grid-column: 2/-1;
+    }
+}
 
 /* MEDIA QUERIES (LARGE) */
