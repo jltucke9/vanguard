@@ -66,29 +66,27 @@ table {
 /* GLOBAL STYLES (MOBILE FIRST (SMALL) */
 body {
     font-family: var(--font);
-    font-size: 8pt;
+    font-size: 10pt;
     line-height: 1.5;
+    font-weight: 500;
     margin: 0;
     box-sizing: border-box;
     scroll-behavior: smooth;
+    min-width: 400px;
 }
 
 /* MIN-WIDTH OF THE PAGE SHOULD NOT GO BELOW 400PX */
-
- header, main, footer {
-    /* width: 100%; */
-    min-width: 400px;
-}
 
 header {
     background-color: var(--black);
     padding: 1rem;
     position: relative;
+    box-shadow: 0 4px 4px var(--blue);
 }
 
 h1 {
     display: flex;
-    font-size: 24pt;
+    font-size: 25pt;
     font-weight: 800;
     color: var(--blue);
     gap: 0.5rem;
@@ -108,14 +106,19 @@ header h2 {
     height: 1px;
 }
 
+#main-nav {
+    display: none;
+}
+
 nav {
     display: none;
     position: absolute;
     right: 1rem;
     padding: 0.5rem 0;
-    min-width: 200px;
+    min-width: 220px;
     text-align: center;
     background-color: var(--black);
+    text-align: center;
 }
 
 nav ul {
@@ -137,10 +140,6 @@ nav a:hover {
     background-color: var(--blue);
     color: var(--black);
     outline: none;
-}
-
-#main-nav {
-    display: none;
 }
 
 label[for="main-nav"] {
@@ -173,10 +172,13 @@ label[for="main-nav"] span::after {
     top: 13px;
 }
 
-#main-nav:checked ~ nav {
+input:checked ~ nav {
     display: block;
 }
 
+input:checked ~ ul {
+    max-height: 500px;
+}
 
 /* ADD A DIV WITH THE CLASS OF CONTAINER TO EVERY CONTENT CONTAINER THIS IS ALLOW THE BASE ELEMENTS TO BE 100% WIDTH, BUT CONSTRAIN THE ACTUAL CONTENT TO 90% */
 .container {
@@ -185,9 +187,15 @@ label[for="main-nav"] span::after {
     margin: 0 auto;
 }
 
-#innovation h2 {
+h2 {
     font-size: 20pt;
-    font-weight: 800;
+    font-weight: 700;
+}
+
+#innovation p {
+    padding: 1rem;
+    font-weight: 00;
+    font-size: 9pt;
 }
 
 /* ADD TO "INNOVATION & INVESTMENT SECTION (Photo by Kevin Matos on Unsplash) */
@@ -202,7 +210,100 @@ label[for="main-nav"] span::after {
     color: var(--white);
 }
 
+#blur {
+    padding: 3px;
+    -webkit-backdrop-filter: blur(5px);
+    backdrop-filter: blur(5px);
+}
 
+#innovation a.btn {
+    display: grid;
+    background-color: var(--blue);
+    text-decoration: none;
+    font-weight: 800;
+    text-align: center;
+    border-radius: 0.5rem;
+    max-width: 60%;
+    margin: 0 auto;
+    padding: 1.25rem 0.25rem;
+    color: var(--white);
+    font-weight: 800;
+    font-size: 12pt;
+}
+
+#innovation a.btn:hover {
+    background-color: var(--red);
+}
+
+#expertise h2 {
+    padding: 1rem;
+
+}
+
+#expertise p {
+    font-weight: 500;
+}
+
+#offer {
+    margin-bottom: 4rem;
+}
+
+#offer h2 {
+    padding: 1rem;
+}
+
+#offer h3 {
+    font-size: 15pt;
+    padding: 1.5rem 1.5rem 1rem;
+    font-weight: 800;
+}
+
+#offer p {
+    padding: 0 1rem 0.75rem;
+}
+
+.offerings {
+    color: var(--white);
+    background-color: var(--blue);
+    border-radius: 0.75rem;
+    margin: 0.75rem 0;
+}
+
+#results {
+    background-color: var(--blue);
+    color: var(--white);
+    padding-bottom: 1rem;
+}
+
+#results h2 {
+    padding: 2rem 1rem;
+}
+
+#results h3 {
+    font-size: 18pt;
+    font-weight: 800;
+    padding: 2rem;
+}
+
+table {
+    background-color: var(--black);
+    width: 100%;
+    text-align: center;
+    font-size: 15pt;
+    font-weight: 400;
+}
+
+table th {
+    font-weight: 800;
+}
+table th, td {
+    padding: 1rem;
+    border: 0.1rem solid var(--charcoal);
+}
+
+.shaded-tb {
+    background-color: var(--charcoal);
+}
 
 /* THIS ONE IS DONE FOR YOU */
 #bar-chart {
@@ -217,15 +318,17 @@ label[for="main-nav"] span::after {
     padding: 1rem;
     position: relative;
 }
+
 /* ADD ON TRANSITION ON HEIGHT */
 .bar {
     width: 50px;
     background: var(--charcoal);
     border-radius: 10px;
     position: relative;
-    transition: all 5s;
+    transition: all 5s ease-in;
     height: 0;
 }
+
 /* THIS ONE IS DONE FOR YOU */
 .bar::after {
     content: attr(data-year);
@@ -237,6 +340,7 @@ label[for="main-nav"] span::after {
     font-weight: bold;
     color: var(--white);
 }
+
 @keyframes stepUp {
     0% {
         height: 0;
@@ -250,6 +354,66 @@ label[for="main-nav"] span::after {
     animation: stepUp 1s ease-in-out forwards;
 }
 
+#contact {
+    background-color: var(--black);
+    color: var(--white);
+}
+
+#contact h2 {
+    padding: 1rem;
+}
+
+#contact p {
+    padding-bottom: 1.5rem;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    font-size: 12pt;
+}
+
+input, select {
+    padding: 20px;
+    margin-bottom: 20px; 
+}
+
+textarea {
+    padding: 40px;
+    margin-bottom: 20px
+}
+
+#my-submit {
+    background-color: var(--blue);
+    color: var(--white);
+    text-decoration: none;
+    border-radius: 1rem;
+    font-size: 15pt;
+    font-weight: 800;
+    border: none;
+    cursor: pointer;
+}
+
+#my-submit:hover {
+    background-color: var(--red);
+}
+
+footer {
+    text-align: center;
+    background-color: var(--black);
+    color: var(--white);
+    padding: 2rem;
+    line-height: 1.75;
+}
+
+#email {
+    color: var(--blue);
+}
+
+#tel {
+    text-decoration: none;
+    color: var(--white);
+}
 
 /* MEDIA QUERIES (MEDIUM) */ 
 
