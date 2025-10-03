@@ -303,6 +303,7 @@ table {
     text-align: center;
     font-size: 13pt;
     font-weight: 400;
+    width: 100%;
 }
 
 table th {
@@ -311,6 +312,7 @@ table th {
 table th, td {
     padding: 1rem;
     border: 0.1rem solid var(--charcoal);
+    margin: 0 auto;
 }
 
 .shaded-tb {
@@ -327,7 +329,7 @@ table th, td {
     height: 300px;
     width: 100%;
     max-width: 800px;
-    padding: 1rem;
+    padding: 0.5rem;
     position: relative;
 }
 
@@ -512,7 +514,7 @@ footer {
     #results .results-container {
         display: grid;
         grid-template-columns: 1fr 1fr;
-        gap: 1rem
+        gap: 2rem;
     }
 
     .results-container {
@@ -538,5 +540,86 @@ footer {
 
 /* MEDIA QUERIES (LARGE) */
 @media all and (min-width: 1024px) {
+    #innovation p {
+        font-size: 12pt;
+    }
+
+    #offer .container {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        gap: 1rem;
+    }
+
+    #offer h3 {
+        font-size: 15pt;
+    }
+
+    #offer p {
+        font-size: 10pt;
+    }
+
+    .results-table {
+        width: 100%;
+    }
+
+    .bar-chart {
+        width: 100%;
+    }
+
+    form {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 0.15rem 2rem;
+    }
+
+    label[for="my-name"] { 
+        grid-column: 1;
+    }
+
+    #my-name {
+        grid-column: 1;
+    }
     
+    label[for="comp-name"] {
+        grid-column: 1;
+    }
+
+    #comp-name {
+        grid-column: 1;
+    }
+    
+    label[for="comments"] {
+        grid-column: 1;
+    }
+
+    #comments {
+        grid-column: 1;
+    }
+    
+    label[for="my-email"] {
+        grid-column: 2;
+        grid-row: 1;
+    }
+
+    #my-email {
+        grid-column: 2;
+        grid-row: 2;
+    }
+    
+    label[for="industry"] {
+        grid-column: 2;
+        grid-row: 3;
+    }
+
+    #industry {
+        grid-column: 2;
+        grid-row: 4;
+    }
+    
+    #my-submit {
+        width: 105%;
+        height: 45%;
+
+    }
+
 }
