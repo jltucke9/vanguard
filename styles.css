@@ -78,17 +78,22 @@ body {
 
 header {
     background-color: var(--black);
-    padding: 1rem;
+    padding: 1rem 1rem 0.5rem;
     position: relative;
     box-shadow: 0 4px 4px var(--blue);
+    display: grid;
+    grid-template-columns: 1fr 1fr;
 }
+
 
 h1 {
     display: flex;
-    font-size: 25pt;
+    font-size: 23pt;
     font-weight: 800;
     color: var(--blue);
     gap: 0.5rem;
+    grid-column: 1/2;
+    justify-content: center;
 }
 
 /* ADD FLOATING SVG LOGO BEFORE THE H1 */
@@ -98,6 +103,16 @@ header h1::before {
     width: 3.75rem;
     height: 3.75rem;
     background: url('images/vanguard-logo.svg') no-repeat center/contain;
+    animation: float 8s ease-in-out infinite;
+}
+
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
 }
 
 header h2 {
@@ -111,13 +126,12 @@ header h2 {
 
 nav {
     display: none;
-    position: absolute;
-    right: 1rem;
+    position: relative;
     padding: 0.5rem 0;
-    min-width: 220px;
     text-align: center;
     background-color: var(--black);
-    text-align: center;
+    grid-column: 2/-1;
+
 }
 
 nav ul {
@@ -127,11 +141,11 @@ nav ul {
 
 nav a {
     display: block;
-    padding: 1rem;
+    padding: 0.75rem 2rem;
     color: var(--blue);
     text-decoration: none;
     font-weight: 600;
-    font-size: 15pt;
+    font-size: 14pt;
     text-transform: uppercase;
 }
 
@@ -271,7 +285,7 @@ h2 {
 #results {
     background-color: var(--blue);
     color: var(--white);
-    padding-bottom: 1rem;
+    padding-bottom: 1.5rem;
 }
 
 #results h2 {
@@ -313,7 +327,7 @@ table th, td {
     height: 300px;
     width: 100%;
     max-width: 800px;
-    padding: 0.5rem;
+    padding: 1rem;
     position: relative;
 }
 
@@ -487,6 +501,10 @@ footer {
         margin: 0;
     }
 
+    #results {
+        padding-bottom: 1rem;
+    }
+
     #results h3 {
         font-size: 20pt;
     }
@@ -513,9 +531,12 @@ footer {
         grid-column: 2/-1;
     }
     table th, td {
-        padding: 0.75rem;
+        padding: 1rem;
     }
 
 }
 
 /* MEDIA QUERIES (LARGE) */
+@media all and (min-width: 1024px) {
+    
+}
