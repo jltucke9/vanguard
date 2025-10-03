@@ -193,7 +193,7 @@ h2 {
 
 #innovation p {
     padding: 1rem;
-    font-weight: 00;
+    font-weight: 600;
     font-size: 9pt;
 }
 
@@ -281,19 +281,18 @@ h2 {
 #results h3 {
     font-size: 18pt;
     font-weight: 800;
-    padding: 2rem;
+    padding: 1rem;
 }
 
 table {
     background-color: var(--black);
-    width: 100%;
     text-align: center;
-    font-size: 15pt;
+    font-size: 13pt;
     font-weight: 400;
 }
 
 table th {
-    font-weight: 800;
+    font-weight: 600;
 }
 table th, td {
     padding: 1rem;
@@ -314,7 +313,7 @@ table th, td {
     height: 300px;
     width: 100%;
     max-width: 800px;
-    padding: 1rem;
+    padding: 0.5rem;
     position: relative;
 }
 
@@ -421,16 +420,87 @@ footer {
 /* MEDIA QUERIES (MEDIUM) */
 @media all and (min-width: 800px) {
 
-    #results {
+    h2 {
+       font-size: 22pt; 
+    }
+
+    p {
+        font-size: 11.5pt;
+    }
+
+    label[for="main-nav"] {
+        display: none;
+    }
+
+    nav {
+        display: block;
+        position: static; 
+        padding: 1rem;
+    }
+
+    nav ul {
+        flex-direction: row;
+        justify-content: flex-end;
+        gap: 1rem;
+    }
+
+    nav a {
+        padding: 0.5rem 1rem;
+        font-size: 15pt;
+        font-weight: 800; 
+    }
+
+    header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    #innovation {
+        height: 700px;
+    }
+
+    #innovation p {
+        font-size: 11pt;
+    }
+
+    #innovation a.btn {
+        max-width: 30%;
+    }
+
+    #offer .container {
         display: grid;
         grid-template-columns: 1fr 1fr;
-        grid-template-rows: 1fr 1fr;
         gap: 1rem;
+    }
+
+    #offer h2 {
+        grid-column: 1/-1;
+    }
+
+    #offer h3 {
+        font-size: 18pt;
+        font-weight: 700;
+    }
+
+    .offerings {
+        margin: 0;
+    }
+
+    #results h3 {
+        font-size: 20pt;
+    }
+
+    #results .results-container {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 1rem
     }
 
     .results-container {
         flex-direction: row;
         justify-content: space-between;
+        grid-column: 1/-1;
     }
 
     .results-table {
@@ -442,6 +512,10 @@ footer {
         width: 50%;
         grid-column: 2/-1;
     }
+    table th, td {
+        padding: 0.75rem;
+    }
+
 }
 
 /* MEDIA QUERIES (LARGE) */
