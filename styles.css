@@ -192,6 +192,10 @@ label[for="main-nav"] span::after {
     top: 10px;
 }
 
+#main-nav:checked ~ nav {
+    display: block;
+}
+
 
 /* ADD A DIV WITH THE CLASS OF CONTAINER TO EVERY CONTENT CONTAINER THIS IS ALLOW THE BASE ELEMENTS TO BE 100% WIDTH, BUT CONSTRAIN THE ACTUAL CONTENT TO 90% */
 .container {
