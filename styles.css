@@ -571,6 +571,10 @@ footer {
         font-size: 12pt;
     }
 
+    #innovation a.btn {
+        max-width: 16%;
+    }
+
     #offer .container {
         display: grid;
         grid-template-columns: 1fr 1fr 1fr;
